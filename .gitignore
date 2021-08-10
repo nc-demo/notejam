@@ -59,4 +59,9 @@ bower_components
 .bak
 
 
+# maven
 target/
+
+#idea
+.idea/
+*.iml
