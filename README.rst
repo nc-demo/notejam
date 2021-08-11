@@ -1,143 +1,103 @@
-*******
-Notejam
-*******
+***************
+Notejam: Spring
+***************
 
-**The easy way to learn web frameworks**
+Notejam application implemented using `Spring <http://projects.spring.io/spring-framework/>`_ framework.
 
-Do you know framework X and want to try framework Y?
-The easy way to start with a new framework is to compare it with frameworks you already know.
-The goal of the project is to help developers easily learn new frameworks by examples.
+Spring version: 4.2.3
 
-Notejam is a unified sample web application (more than just "Hello World") implemented using different server-side frameworks.
-Currently python, php, ruby and javascript frameworks are supported.
+The full stack is:
 
+- `Spring Boot <http://projects.spring.io/spring-boot/>`_ (Spring configuration)
+- `Thymeleaf <http://www.thymeleaf.org/>`_ (View)
+- `Spring Security <http://projects.spring.io/spring-security/>`_ (Security framework)
+- `Spring`_ (DI and MVC framework)
+- `Spring Data <http://projects.spring.io/spring-data/>`_ (Persistence abstraction)
+- `JPA <http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html>`_ (Persistence API)
+- `Hibernate <http://hibernate.org/orm/>`_ (JPA implementation)
 
-====================
-Supported frameworks
-====================
+The application is maintained by `@malkusch <https://github.com/malkusch>`_.
 
-**Python**
+==========================
+Installation and launching
+==========================
 
+-----
+Clone
+-----
 
-* `Django <https://github.com/komarserjio/notejam/tree/master/django>`_
-* `Flask <https://github.com/komarserjio/notejam/tree/master/flask>`_
-* `Pyramid <https://github.com/komarserjio/notejam/tree/master/pyramid>`_
+Clone the repo:
 
-**PHP**
+.. code-block:: bash
 
-* `Laravel <https://github.com/komarserjio/notejam/tree/master/laravel>`_
-* `Yii <https://github.com/komarserjio/notejam/tree/master/yii>`_
-* `CakePHP <https://github.com/komarserjio/notejam/tree/master/cakephp>`_
-* `Nette <https://github.com/komarserjio/notejam/tree/master/nette/native_db>`_ / `Nette + Doctrine <https://github.com/komarserjio/notejam/tree/master/nette/doctrine>`_
-* `Symfony <https://github.com/komarserjio/notejam/tree/master/symfony>`_
+    $ git clone https://github.com/komarserjio/notejam YOUR_PROJECT_DIR/
 
-**Ruby**
+-------
+Install
+-------
 
-* `Padrino <https://github.com/komarserjio/notejam/tree/master/padrino>`_
-* `Ruby on Rails <https://github.com/komarserjio/notejam/tree/master/rubyonrails>`_
+Install a `JDK <http://openjdk.java.net/>`_ and `Maven <https://maven.apache.org/>`_.
 
-**Java**
+-------------
+Configuration
+-------------
 
-* `Spring <https://github.com/komarserjio/notejam/tree/master/spring>`_
+The application has a password recovery process which involves sending an email.
+If you want to enable that, you have to create a local application.properties file
+and set there the property spring.mail.host to your SMTP server (e.g. spring.mail.host = smtp.example.net).
 
-**Javascript (node.js)**
+.. code-block:: bash
 
-* `Express <https://github.com/komarserjio/notejam/tree/master/express>`_
+    $ cd YOUR_PROJECT_DIR/spring/
+    $ vi application.properties
 
+See `MailProperties <http://docs.spring.io/spring-boot/docs/current/api/index.html?org/springframework/boot/autoconfigure/mail/MailProperties.html>`_
+for more mail properties.
 
-In progress
------------
+------
+Launch
+------
 
-**Scala**
+Compile and launch the application:
 
-* Play
+.. code-block:: bash
 
-**Clojure**
+    $ cd YOUR_PROJECT_DIR/spring/
+    $ mvn spring-boot:run
 
-* Compojure
+Go to http://localhost:8080/ in your browser.
 
-... and more frameworks are coming soon.
+~~~~~~~~~~~~
+Localization
+~~~~~~~~~~~~
 
-====================
-Application overview
-====================
+This application comes with support for the languages German and English. The locale is
+determined by the Accept-Language request header. If the header is not present the
+content will be served with the default locale of the JVM. The application will not
+start if the default locale is non of the supported languages.
 
-Notejam is a web application which offers user to sign up/in/out and create/view/edit/delete notes.
-Notes are grouped in pads.
+---------
+Run tests
+---------
 
-**Screenshots**
+Run functional and unit tests:
 
-.. image:: https://github.com/komarserjio/notejam/blob/master/html/screenshots/1p.png
-    :alt: Sign in
-    :width: 400
-    :align: center
-    :target: https://github.com/komarserjio/notejam/tree/master/screenshots.rst
+.. code-block:: bash
 
-.. image:: https://github.com/komarserjio/notejam/blob/master/html/screenshots/2p.png
-    :alt: All notes
-    :width: 400
-    :align: center
-    :target: https://github.com/komarserjio/notejam/tree/master/screenshots.rst
-
-.. image:: https://github.com/komarserjio/notejam/blob/master/html/screenshots/3p.png
-    :alt: New note
-    :width: 400
-    :align: center
-    :target: https://github.com/komarserjio/notejam/tree/master/screenshots.rst
-
-See `more screenshots <https://github.com/komarserjio/notejam/tree/master/screenshots.rst>`_
-for look and feel.
-
-See `detailed overview <https://github.com/komarserjio/notejam/blob/master/contribute.rst#application-requirements>`_.
-
-Typical application covers following topics:
-
-* Request/Response handling
-* Routing
-* Templates
-* Configuration
-* Authentication
-* Forms
-* Error handling
-* Database/ORM
-* Mailing
-* Functional/unit testing
-
-=============
-How to launch
-=============
-
-All implementations are SQLite based and quickly launchable by built-in web servers.
-Each implementation has instruction describing easy steps to install environment, launch and run tests.
+    $ cd YOUR_PROJECT_DIR/spring/
+    $ mvn test
 
 ============
 Contribution
 ============
 
-Contribution is more than welcome!
-Contribute improvements to existing applications to help them follow best practices
-or provide new implementation for unsupported framework.
+Do you have Java/Spring experience? Help the application to follow Java and Spring best practices.
 
+Please send your pull requests in the ``master`` branch.
+Always prepend your commits with framework name:
 
-**Do you want to improve one of the existing implementations?**
+.. code-block:: bash
 
-Each implementation has its own README with contribution details.
-
-**Do you want to add new framework?**
+    Spring: Implement sign in functionality
 
 Read `contribution guide <https://github.com/komarserjio/notejam/blob/master/contribute.rst>`_ for details.
-
-========
-Contacts
-========
-
-* Twitter: `@komarserjio <https://twitter.com/komarserjio>`_
-* Email: komarserjio <at> gmail.com
-
-=======
-License
-=======
-
-MIT © Serhii Komar.
-
-See `license <https://github.com/komarserjio/notejam/blob/master/license.rst>`_.
