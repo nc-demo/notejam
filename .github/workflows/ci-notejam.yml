@@ -1,4 +1,4 @@
-name: ms-cloud-config CI
+name: nodejam CI
 
 # Triggers the workflow on push or pull request events
 on: [push, pull_request]
